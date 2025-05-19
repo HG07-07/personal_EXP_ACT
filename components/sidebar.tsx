@@ -1,9 +1,20 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { BarChart3, CreditCard, DollarSign, Home, PieChart, Receipt, Settings, UserCheck } from "lucide-react"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import {
+  BarChart3,
+  CreditCard,
+  DollarSign,
+  Home,
+  PieChart,
+  Receipt,
+  Settings,
+  UserCheck,
+  Upload,
+  Sparkles,
+} from "lucide-react";
 
 const sidebarLinks = [
   {
@@ -27,6 +38,16 @@ const sidebarLinks = [
     icon: BarChart3,
   },
   {
+    title: "AI Insights",
+    href: "/dashboard/insights",
+    icon: Sparkles,
+  },
+  {
+    title: "Import Data",
+    href: "/dashboard/import",
+    icon: Upload,
+  },
+  {
     title: "Approvals",
     href: "/dashboard/approvals",
     icon: UserCheck,
@@ -46,10 +67,10 @@ const sidebarLinks = [
     href: "/dashboard/settings",
     icon: Settings,
   },
-]
+];
 
 export function Sidebar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="hidden border-r bg-background md:block">
@@ -68,7 +89,9 @@ export function Sidebar() {
                 href={link.href}
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors",
-                  pathname === link.href ? "bg-accent text-accent-foreground" : "transparent",
+                  pathname === link.href
+                    ? "bg-accent text-accent-foreground"
+                    : "transparent",
                 )}
               >
                 <link.icon className="h-4 w-4" />
@@ -79,6 +102,5 @@ export function Sidebar() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

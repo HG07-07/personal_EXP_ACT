@@ -1,20 +1,30 @@
-import type React from "react"
-import { Header } from "@/components/header"
-import { Sidebar } from "@/components/sidebar"
+// Replace this
+
+import { Sidebar } from "@/components/sidebar";
+import DashboardHeader from "@/components/dashboard/dashboard-header";
 
 export default function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      <DashboardHeader />
       <div className="flex flex-1">
         <Sidebar />
-        <div className="flex-1">{children}</div>
+        <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
-  )
+  );
 }
 
+// with
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
+}
